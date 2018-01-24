@@ -1,0 +1,158 @@
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <title>SimpleLife</title>
+    <body>
+{% if session['logged_in'] %}
+<nav class="navbar navbar-light" style="border-bottom:1px solid;color:black;">
+  <div class="container-fluid" style="margin-top:0px;">
+    <div class="navbar-header navbar-light">
+      <a class="navbar-brand" href="/">Simple.</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li><a href="/messages"><span class="glyphicon glyphicon-comment"></span>&nbsp;Messages</a></li>
+      <li><a href="/notifications"><span class="glyphicon glyphicon-globe"></span>&nbsp;Notifications</a></li>
+      <li><a href="/activities"><span class="glyphicon glyphicon-blackboard"></span>&nbsp;Activities</a></li>
+      <form class="navbar-form navbar-left" method="post" action="/search/" id="searchform">
+			<input class="form-control" type="text" name="searchtext" placeholder="Enter Name for Search">&nbsp;
+			<input class="btn btn-primary btn-xm" type="submit" value="Search"/>
+	  </form>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/simp"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Simp Assistant</a></li>
+      <li><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
+<div id="cover" style="background-size:cover;margin-top:-100px;border-botton:2px solid;border-radius:3px;"><img id="imgcover" style="background-size:cover;width:100%;" src="/getimgcover?username_cover={{ username_for_pics }}"></div>
+<div id="profile_content">
+    <div id="pc_sub">
+<div id="website"><span><a href="{{ website[0] }}" target="_blank">{{ website[0] }}&nbsp;</a><span class="glyphicon glyphicon-link" aria-hidden="true"></span></span></div>
+<div id="profilepicture"><img id="dp" src="/getimgdp?username_dp={{ username_for_pics }}">&nbsp;</div>
+<div id="email"><span class="glyphicon glyphicon-envelope"></span><span>&nbsp;{{ email[0] }}</span></div><br>
+    </div>
+    <div id="pc_sub2" style="">
+        <div style="float:left;margin-left:-200px;margin-right:100px;margin-top:-50px;font-size:20px;width:300px;">
+        <div style="margin-top:30px;margin-left:30px;margin-right:30px;margin-bottom:30px;"><span><u><b>Interests</b></u></span><br>
+        <div style="display:block;">
+        {% for itr in interests_arr %}
+        <span id="panels">{{ itr }}</span>
+        {% endfor %}
+        </div>
+        </div>
+        </div>
+        <div style="position:absolute;margin-left:100px;">
+<div ALIGN="center" style="font-size:20px;"><span>{{ name[0] }} ( {{ username }} ) <br><button type="button" class="btn btn-success btn-xs" onClick="window.location.href='http://s1mple.pythonanywhere.com/subscribe?username={{ username }}'"><span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> Subscribe</button></span>&nbsp;<button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Message</button>&nbsp;<button type="button" class="btn btn-primary btn-xs" onClick="window.location.href='http://s1mple.pythonanywhere.com/planner?username={{ username }}'"><span class="glyphicon glyphicon-glass" aria-hidden="true"></span> Make a Plan</button></span></div>
+<div ALIGN="center" style="display:block;width:500px;"><span>{{ desc[0] }}</span></div>
+<div ALIGN="center" style=""><span>
+        {% if activity_bool %}
+        <span style="font-size:20px;color:black;"><a href="#" target="_blank">{{ acv_acv[0] }} @ {{ acv_place[0] }}</a></span><br>
+        <span style="font-size:10px;color:#778899;">{{ acv_locality[0] }}, {{ acv_city[0] }}, {{ acv_pin[0] }}</span><br>
+        <br>
+        {% endif %}
+</span></div>
+        </div>
+        <div style="float:right;margin-right:-250px;margin-left:200px;margin-top:-50px;font-size:20px;width:300px;">
+        <div style="margin-top:30px;margin-right:30px;margin-left:30px;margin-bottom:30px;"><span><u><b>Subscriptions</b></u></span><br>
+        {% for sbs in subs_arr %}
+        <a href="http://s1mple.pythonanywhere.com/profile/?username={{ sbs }}" target="_blank"><span style="color:gray;text-decoration:none;" id="panels">{{ sbs }}</span></a>
+        {% endfor %}
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Message {{ username }}</h4>
+      </div>
+      <div class="modal-body">
+            {% from "minion.html" import render_field %}
+            <form method="post" id="settings_form" action="/profile/" style=""><br>
+		<dl>
+		    <input type="hidden" name="recipient" value="{{ username }}" />
+			{{ render_field(formd.message_d)  }}
+			<br>
+		</dl>
+		<input class="btn btn-primary btn-xm" type="submit" value="Send Message"/>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<style>
+#panels {
+    border:1px solid;
+    border-width:3px;
+    border-radius:8px;
+    border-top-style: outset;
+    border-right-style: outset;
+    border-bottom-style: outset;
+    border-left-style: groove;
+}
+#cover {
+    margin-top:0px;
+    width:100%;
+    height:200px;
+    overflow:hidden;
+}
+
+body {
+    background-image:url('/static/back2.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+#dp {
+    width: 200px;
+    height: 200px;
+    border: 2px solid white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50%;
+    overflow:hidden;
+    z-index:0;
+}
+#imgcover {
+    z-index:-1;
+    overflow:hidden;
+    position:absolute;
+}
+#profile_content{
+    margin-left:20%;
+    margin-right:30%;
+}
+#website{
+    float:left;
+    margin-top:100px;
+    margin-left:-10px;
+}
+#email{
+    float:right;
+    margin-top:-100px;
+    margin-right:35px;
+}
+</style>

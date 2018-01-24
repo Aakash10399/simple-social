@@ -1,0 +1,113 @@
+{% block body %}
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <title>SimpleLife</title>
+    <body>
+    <div id="login" ALIGN="center">
+        <span id="simple_text">Simple.</span><br>
+        <div id="login_form" ALIGN="center" style="">
+            <div class="container">
+	        {% from "minion.html" import render_field %}
+	        <form method="post" id="login_form" action="/register" style="width:300px;border: solid 3px white;"><br>
+		<dl>
+            {{ render_field(formr.name_r)  }}
+			<br>
+			{{ render_field(formr.username_r)  }}
+			<br>
+			{{ render_field(formr.email_r)  }}
+			<br>
+			{{ render_field(formr.password_r)  }}
+			<br>
+			{{ render_field(formr.confirm_r)  }}
+		</dl>
+		<input class="btn btn-primary btn-lg" type="submit" value="Register"/>
+		<br><br><span id="reg_tag">or <a href="/">login</a> if you have an account!</span>
+		<br>
+		{% if err==False %}
+		<span>....</span>
+		{% else %}
+		<span style="color:white;">There was an error</span>
+		{% endif %}
+		</form>
+        </div>
+        </div>
+        <span id="tagline">Register for free!</span>
+    </div>
+    </body>
+</html>
+<style>
+    @font-face {
+    font-family: lda;
+    src: url('/static/lda.ttf');
+}
+body{
+    background-image:url('/static/back.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+#name_r,#username_r,#email_r,#password_r,#confirm_r{
+    font-family:Arial;
+    font-size:20px;
+    border-bottom-color: #b3b3b3;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #b3b3b3;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #b3b3b3;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: #b3b3b3;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-top-style: solid;
+    border-top-width: 1px;`
+}
+#login_form {
+     border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+#simple_text , #tagline {
+    font-family:lda;
+    font-size:60px;
+    color:white;
+    font-weight:bold;
+}
+#login {
+    margin-top:30px;
+}
+a:link{
+    color:#8EE5EE;
+}
+a:visited{
+    color:#8EE5EE;
+}
+a:hover{
+    color:white;
+}
+a:active{
+    color:#8EE5EE;
+}
+#reg_tag {
+    font-family:Arial;
+    color:white;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,122 @@
+{% block body %}
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <title>SimpleLife</title>
+    <body>
+    <div ALIGN="center"><br>
+        <a href="/"><img src="/static/center_text.png"></a><br>
+        <a href="/view_intro"><img src="/static/view_intro.png" id="linker_modules"></a>
+        <a href="/social_intro"><img src="/static/social_intro.png" id="linker_modules" style="border:1px solid white;"></a>
+        <a href="/health_intro"><img src="/static/health_intro.png" id="linker_modules"></a>
+        <a href="/enterprise_intro"><img src="/static/enterprise_intro.png" id="linker_modules"></a>
+        <a href="/nearby_intro"><img src="/static/nearby_intro.png" id="linker_modules"></a>
+    </div><br>
+    <div style="margin-left:200px;margin-right:200px;" id="content_social">
+        <span style="font-size:40px;"><b><u>Simple Social</u></b></span><br><br>
+        <p><a href="/social" target="_blank">Try Simple Social</a></p><br>
+        <p>For testing you can use credentials - username="Aakash10399" password="admin"</p><br>
+        <p>Source Code hosted at Github: <a href="https://github.com/Aakash10399/simple-social" target="_blank">https://github.com/Aakash10399/simple-social</a></p><br>
+        <p>During my first days at MIT, Manipal I didn't really know anyone here. And it helps if you have friends at the dinner table. What I realized that I shouldn't have been the only person who feels this way.</p><br>
+        <img src="/static/1_s.png" style="width:1000px;height:562px;"><br><br>
+        <p>I obviously wanted to meet people, but I wanted to meet people who liked to do things I liked, who were doing the things I like, basically people I can relate the most to. So what I ended up making is an activity-based model.</p><br>
+        <img src="/static/2_s.png" style="width:1000px;height:468px;"><br><br>
+        <p>The activity tab is the epicenter of everything happening on the website. Upon your activity and activity location, your interests the app manages to ensure that you are never alone, finds the best people for you to meet. Applying Machine Learning Algorithms for analysis is the next thing.</p><br>
+        <img src="/static/3_s.png" style="width:1000px;height:427px;"><br><br>
+        <p>Based on your common interests, activity patterns, you can plan activities too!</p><br>
+        <img src="/static/4_s.png" style="width:1000px;height:466px;"><br><br>
+        <p>The coolest thing about the platform is SIMP assistant which will be seamlessly synced with different organizations which would automate your lives. Currently I’ve given an example of how it would look like if MIT, Manipal’s timetable is synced with SIMP. So could so many other institutions and organizations, our day to day lives are destined to be automated!
+So now no more reminders! You will be notified about everything!You get notified about your interests too, so now you don't have to have different subscriptions for your different passions and interests!</p><br>
+        <img src="/static/7_s.png"><img src="/static/8_s.png" style="width:295px;height:525px;margin-left:200px;"><br><br>
+        <p>You can subscribe to people so that you get notified about people you want to hang out with!</p><br>
+        <img src="/static/5_s.png" style="width:1000px;height:562px;"><br><br>
+        <p>Basic features of a social network are present obviously!</p><br>
+        <img src="/static/6_s.png" style="width:1000px;height:562px;"><br><br>
+        <p>Too much to handle? Everything here at Settings!</p><br>
+        <img src="/static/9_s.png" style="width:1000px;height:478px;"><br><br>
+    </div>
+    </body>
+</html>
+<style>
+    @font-face {
+    font-family: lda;
+    src: url('/static/lda.ttf');
+}
+body{
+    background-image:url('/static/back.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+#linker_modules:hover {
+    border:1px solid white;
+}
+#content_social{
+    color:white;
+    font-family:Century Gothic;
+    font-size:20px;
+}
+#username_l , #password_l{
+    font-family:Arial;
+    font-size:20px;
+    border-bottom-color: #b3b3b3;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #b3b3b3;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #b3b3b3;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: #b3b3b3;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-top-style: solid;
+    border-top-width: 1px;`
+}
+#login_form {
+     border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+#simple_text , #tagline {
+    font-family:lda;
+    font-size:60px;
+    color:white;
+    font-weight:bold;
+}
+#login {
+    margin-top:100px;
+}
+a:link{
+    color:#8EE5EE;
+}
+a:visited{
+    color:#8EE5EE;
+}
+a:hover{
+    color:white;
+}
+a:active{
+    color:#8EE5EE;
+}
+#reg_tag {
+    font-family:Arial;
+    color:white;
+}
+</style>
+{% endblock %}

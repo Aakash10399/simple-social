@@ -1,0 +1,118 @@
+{% block body %}
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <title>SimpleLife</title>
+    <body>
+    <div ALIGN="center"><br>
+        <a href="/"><img src="/static/center_text.png"></a><br>
+        <a href="/view_intro"><img src="/static/view_intro.png" id="linker_modules"></a>
+        <a href="/social_intro"><img src="/static/social_intro.png" id="linker_modules"></a>
+        <a href="/health_intro"><img src="/static/health_intro.png" id="linker_modules"></a>
+        <a href="/enterprise_intro"><img src="/static/enterprise_intro.png" id="linker_modules" style="border:1px solid white;"></a>
+        <a href="/nearby_intro"><img src="/static/nearby_intro.png" id="linker_modules"></a>
+    </div><br>
+    <div style="margin-left:200px;margin-right:200px;" id="content_enterprise">
+        <span style="font-size:40px;"><b><u>EasyBill - A Simple Enterprise Product</u></b></span><br><br>
+        <p>The Indian Government has been pushing us to go paper-less, to save paper, to go electronic for a very long time now and for good reason. The government has also been pushing to keep our country clean with great reason again. I somehow think both of these are connected as the most common kind of garbage I see by the roads are paper, bills, atm sanctions etc.</p><br>
+        <p>It is also true that with rise of social networks, SMS (short message service) is long forgotten and comes practically free with talktime packages. The basic idea is to use the most open source features, SMS and the Internet, to effectively replace common billing methods for common shops, ATM bills, marts etc.</p><br>
+        <img src="/static/3_e.png" id="phone_ss"><img src="/static/4_e.png" id="phone_ss"><img src="/static/5_e.png" id="phone_ss"><br><br>
+        <p>The merchants are registered and can login from the android app. For now for testing you can use login credentials username-"admin" and password-"admin".</p><br>
+        <img src="/static/2_e.png"><br><br>
+        <p>The products, quantity can be set and now the bill can be sent via SMS</p><br>
+        <img src="/static/6_e.png" id="phone_ss"><img src="/static/7_e.png" id="phone_ss"><img src="/static/8_e.png" id="phone_ss"><br><br>
+        <p>The bill information is stored on the database so that even if you misplace anything it can be recovered.</p><br>
+        <img src="/static/1_e.png"><br><br>
+        <p>The idea that problems can be solved so simply using modern day technology is what drives me to create products such like this.</p><br>
+        <p>The apk file for the android app, source code for the android app and the flask web app and database config is live on Github:  <a href="https://github.com/Aakash10399/simple-enterprise-easybill" target="_blank">https://github.com/Aakash10399/simple-enterprise-easybill</a></p><br>
+    </div>
+    </body>
+</html>
+<style>
+
+    @font-face {
+    font-family: lda;
+    src: url('/static/lda.ttf');
+}
+#phone_ss {
+    width:250px;height:444px;margin-right:50px;
+}
+body{
+    background-image:url('/static/back.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-blend-mode: darken;
+}
+#content_enterprise{
+    color:white;
+    font-family:Century Gothic;
+    font-size:20px;
+}
+#linker_modules:hover {
+    border:1px solid white;
+}
+#username_l , #password_l{
+    font-family:Arial;
+    font-size:20px;
+    border-bottom-color: #b3b3b3;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: #b3b3b3;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: #b3b3b3;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: #b3b3b3;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-top-style: solid;
+    border-top-width: 1px;`
+}
+#login_form {
+     border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+#simple_text , #tagline {
+    font-family:lda;
+    font-size:60px;
+    color:white;
+    font-weight:bold;
+}
+#login {
+    margin-top:100px;
+}
+a:link{
+    color:#8EE5EE;
+}
+a:visited{
+    color:#8EE5EE;
+}
+a:hover{
+    color:white;
+}
+a:active{
+    color:#8EE5EE;
+}
+#reg_tag {
+    font-family:Arial;
+    color:white;
+}
+</style>
+{% endblock %}

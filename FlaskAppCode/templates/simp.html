@@ -1,0 +1,99 @@
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <title>SimpleLife</title>
+    <body>
+{% if session['logged_in'] %}
+<nav class="navbar navbar-light" style="border-bottom:1px solid;color:black;">
+  <div class="container-fluid" style="margin-top:0px;">
+    <div class="navbar-header navbar-light">
+      <a class="navbar-brand" href="/">Simple.</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+      <li><a href="/messages"><span class="glyphicon glyphicon-comment"></span>&nbsp;Messages</a></li>
+      <li><a href="/notifications"><span class="glyphicon glyphicon-globe"></span>&nbsp;Notifications</a></li>
+      <li><a href="/activities"><span class="glyphicon glyphicon-blackboard"></span>&nbsp;Activities</a></li>
+      <form class="navbar-form navbar-left" method="post" action="/search/" id="searchform">
+			<input class="form-control" type="text" name="searchtext" placeholder="Enter Name for Search">&nbsp;
+			<input class="btn btn-primary btn-xm" type="submit" value="Search"/>
+	  </form>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/simp"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Simp Assistant</a></li>
+      <li><a href="/settings"><span class="glyphicon glyphicon-cog"></span>&nbsp;Settings</a></li>
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="left-nav" style="float:left;width:500px;border:0.5px solid;color:black;margin-top:-20px;margin-left:100px;">
+<div id="profilepicture" ALIGN="center" style="margin-top:40px;"><img id="dp" src="/getimgdp?username_dp={{ session['username'] }}">&nbsp;</div><br>
+<div ALIGN="center" style="font-size:20px;"><span>{{ name[0] }} <br> ( {{ username }} ) </span></div><br>
+<div ALIGN="center" style="margin-right:20px;margin-left:20px;"><span>{{ desc[0] }}</span></div><br>
+<div id="website" ALIGN="center"><span class="glyphicon glyphicon-link" aria-hidden="true"></span>&nbsp;<span><a href="{{ website[0] }}" target="_blank">{{ website[0] }}&nbsp;</a></span></div><br>
+<div id="email" ALIGN="center"><span class="glyphicon glyphicon-envelope"></span><span>&nbsp;{{ email[0] }}</span></div><br>
+<div id="mobile" ALIGN="center"><span class="glyphicon glyphicon-phone"></span><span>&nbsp;{{ mobile[0] }}</span></div><br>
+</div>
+<div id="right" style="float:left;border:0.5px solid;color:black;margin-top:-20px;margin-left:150px;">
+    <div style="margin-right:50px;margin-left:50px;"><br>
+        {% if simp_sub_bool %}
+        {% for item in range(0,le) %}
+        <br><span style="font-size:20px;color:black;"><a href="#" target="_blank">{{ h1[item] }}</a></span><br>
+        <span style="font-size:10px;color:#778899;">{{ h2[item] }}</span><br>
+        <span style="font-size:10px;">{{ h3[item] }}</span><br>
+        <br>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+<style>
+#cover {
+    margin-top:0px;
+    width:100%;
+    height:200px;
+    overflow:hidden;
+}
+body {
+    background-image:url('/static/back2.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+#dp {
+    width: 200px;
+    height: 200px;
+    border: 2px solid white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50%;
+    overflow:hidden;
+    z-index:0;
+}
+#imgcover {
+    z-index:-1;
+    overflow:hidden;
+    position:absolute;
+}
+#profile_content{
+    margin-left:20%;
+    margin-right:30%;
+}
+#left-nav{
+border-radius:10px;
+}
+#right {
+    border-radius:10px;
+}
+</style>
+{% endif %}
