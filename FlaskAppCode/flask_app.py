@@ -14,7 +14,7 @@ UPLOAD_FOLDER = 'SiteFiles/'
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.debug=True
-app.secret_key = 'askjfnaskjgn1200kajnfakjsnzknkxjnaskjd'
+app.secret_key ='yoursecretkey' 
 
 class DmForm(Form):
     message_d = TextAreaField('',render_kw={"placeholder":" Message","cols":"80","rows":"9"})
